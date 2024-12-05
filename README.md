@@ -3,13 +3,9 @@ A simple pedagogic project to explore provisionning aws ressources with Ansible
 
 ## Setup with aws academy
 
-Go get a coffee while starting the devcontainer, and run :
+Start the devcontainer associated with this repository.
 
-```
-aws configure
-```
-
-Start your lab in aws academy lms, once started go to AWS Details and copy AWS CLI credentials
+Then, start your lab in aws academy lms, once started go to AWS Details and copy AWS CLI credentials
 
 Paste the content directly in credential file as follow :
 
