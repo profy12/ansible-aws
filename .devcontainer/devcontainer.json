@@ -16,7 +16,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
-	"postCreateCommand": "pip3 install --user --upgrade pip && pip3 install boto3 && pip3 install --user ansible ansible-lint && ansible-galaxy collection install amazon.aws",
+	"postCreateCommand": "pip3 install --user --upgrade pip && pip3 install --user boto3 && pip3 install --user ansible ansible-lint && ansible-galaxy collection install amazon.aws",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	"containerEnv": {

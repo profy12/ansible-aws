@@ -3,13 +3,27 @@
   hosts: localhost
   tasks:
     - name: start an instance with a public IP address
+      become: false
       amazon.aws.ec2_instance:
-        name: "mavm"
-        key_name: "vockey"
+        name: "{{ item }}"
+        key_name: vockey
         instance_type: t4g.nano
         security_group: default
+        state: running
+        filters:
+          tag:Name: "{{ item }}"
+          instance-state-name:
+            - "running"
+            - "stopped"
+            - "pending"
+            - "stopping"
+            - "shutting-down"
         network_interfaces:
           - assign_public_ip: true
         image_id: ami-0325498274077fac5
         tags:
           Environment: Testing
+      with_items:
+        - mavm
+        - totovm
+        - zefvm
