@@ -3,4 +3,9 @@
     msg: "Hello DevOps ! Mon ip est {{ipv4_public}}"
   tags:
     - debug
-
+- name: Put a readme in /root directory
+  ansible.builtin.template:
+    src: README.txt.j2
+    dest: /root/README.txt
+  tags:
+    - readme
