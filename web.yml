@@ -3,12 +3,13 @@
 - name: Install Apache web server
   hosts: all
   vars:
-    php_version: 8.2
+    php_version: 8.3
   tasks:
     - name: "Installer Apache et PHP{{ php_version }} sur Debian"
       apt:
         name: "{{ item }}"
         state: present
+        update_cache: true
       loop:
         - apache2
         - "php{{ php_version }}"
