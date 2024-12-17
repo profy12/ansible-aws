@@ -9,6 +9,11 @@ Then, start your lab in aws academy lms, once started go to AWS Details and copy
 
 Paste the content directly in credential file as follow (should reproduce this step every time you restart your lab):
 
+First, ensure that .ssh directory exist
+```
+mkdir -p .ssh
+```
+
 ```
 echo "[default]
 aws_access_key_id=[...]" > .aws/credentials
