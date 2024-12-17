@@ -4,20 +4,6 @@
   hosts: all
   vars:
     php_version: 8.3
-  tasks:
-    - name: "Installer Apache et PHP{{ php_version }} sur Debian"
-      apt:
-        name: "{{ item }}"
-        state: present
-        update_cache: true
-      loop:
-        - apache2
-        - "php{{ php_version }}"
-      when: ansible_facts['os_family'] == "Debian"
-
-    - name: S'assurer qu'Apache est démarré sur Debian
-      service:
-        name: apache2
-        state: started
-        enabled: yes
-      when: ansible_facts['os_family'] == "Debian"
+  roles:
+    - web
+    - basic

@@ -1,0 +1,6 @@
+- name: Debug some vars
+  ansible.builtin.debug:
+    msg: "Hello DevOps ! Mon ip est {{ipv4_public}}"
+  tags:
+    - debug
+
