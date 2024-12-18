@@ -1,8 +1,15 @@
-- name: Debug some vars
-  ansible.builtin.debug:
-    msg: "Hello DevOps ! Mon ip est {{ipv4_public}}"
+- name: Debug stuff
   tags:
     - debug
+  block:
+    - name: Set dpkg fact
+      ansible.builtin.set_fact:
+        dpkg_arch: "{{ ansible_architecture | replace('aarch64', 'arm64') }}"
+
+    - name: Debug some vars
+      ansible.builtin.debug:
+        msg: "Hello DevOps ! Mon ip est {{ ipv4_public }}, mon archi est {{ dpkg_arch }}"
+
 - name: Put a readme in /root directory
   ansible.builtin.template:
     src: README.txt.j2
