@@ -1,0 +1,23 @@
+---
+
+- name: Remove conflicted package
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - docker-doc
+      - docker-compose
+      - docker-compose-v2
+      - podman-docker
+      - containerd
+      - runc
+    state: absent
+  tags:
+    - clean
+
+- name: Install first dependancie
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+  tags:
+    - dep
